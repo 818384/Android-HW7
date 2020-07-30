@@ -7,8 +7,8 @@
     android:padding="6dp">
 
     <EditText
-        android:id="@+id/txtBox1"
-        android:hint="Enter a number here: "
+        android:id="@+id/edtNumber"
+        android:hint="Enter a number here"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="30dp"
@@ -23,13 +23,13 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/lblTopCaption"
+            android:id="@+id/tvProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp" />
 
         <ProgressBar
-            android:id="@+id/myBarHor"
+            android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package edu.hcmus.hw06;
+package edu.hcmus.hw07;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("edu.hcmus.hw06", appContext.getPackageName());
+        assertEquals("edu.hcmus.hw07", appContext.getPackageName());
     }
 }

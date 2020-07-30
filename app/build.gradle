@@ -5,7 +5,7 @@ android {
     buildToolsVersion "30.0.0"
 
     defaultConfig {
-        applicationId "edu.hcmus.hw06"
+        applicationId "edu.hcmus.hw07"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1

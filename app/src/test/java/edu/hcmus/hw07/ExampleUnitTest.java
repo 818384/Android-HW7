@@ -1,4 +1,4 @@
-package edu.hcmus.hw06;
+package edu.hcmus.hw07;
 
 import org.junit.Test;
 

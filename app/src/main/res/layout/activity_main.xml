@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#22002222"
+    android:orientation="vertical"
+    android:padding="6dp">
+
+    <EditText
+        android:id="@+id/txtBox1"
+        android:hint="Enter a number here: "
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="30dp"
+        android:background="#ffffffff"
+        android:textSize="18sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lblTopCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp" />
+
+        <ProgressBar
+            android:id="@+id/myBarHor"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleY="8" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnDoItAgain"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:padding="4dp"
+        android:text="Do it again" />
+
+</LinearLayout>

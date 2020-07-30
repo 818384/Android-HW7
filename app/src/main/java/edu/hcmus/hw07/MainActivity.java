@@ -3,7 +3,6 @@ package edu.hcmus.hw07;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -64,21 +63,17 @@ public class MainActivity extends Activity {
     private Runnable foregroundRunnable = new Runnable() {
         @Override
         public void run() {
-            try {
-                if (isRunning) {
-                    progress += step;
-                    System.out.println("progress: " + progress);
-                    tvProgress.setText(String.format(PROGRESS, progress.intValue()));
-                    progressBar.setProgress(progress.intValue());
-                    if (progress.intValue() >= progressBar.getMax()) {
-                        tvProgress.setText("Time up");
-                        btnDoItAgain.setEnabled(true);
-                        progress = 0f;
-                        isRunning = false;
-                    }
+            if (isRunning) {
+                progress += step;
+                System.out.println("progress: " + progress);
+                tvProgress.setText(String.format(PROGRESS, progress.intValue()));
+                progressBar.setProgress(progress.intValue());
+                if (progress.intValue() >= progressBar.getMax()) {
+                    tvProgress.setText("Time up");
+                    btnDoItAgain.setEnabled(true);
+                    progress = 0f;
+                    isRunning = false;
                 }
-            } catch (Exception e) {
-                Log.e("<<foregroundTask>>", e.getMessage());
             }
         }
     };

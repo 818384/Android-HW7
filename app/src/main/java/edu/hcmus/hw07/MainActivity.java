@@ -19,6 +19,7 @@ public class MainActivity extends Activity {
     private Float progress = 0f;
     private Integer number;
     private Float step = 0f;
+    private Float stepOf100;
 
     private boolean isRunning = false;
     private Handler handler = new Handler();
@@ -47,7 +48,7 @@ public class MainActivity extends Activity {
                 progressBar.setMax(number);
                 isRunning = true;
                 btnDoItAgain.setEnabled(false);
-                step = number * 1f / 1000f;
+                step = number * 1f / 100f;
 
                 Thread thread = new Thread(backgroundTask, "bg");
                 thread.start();
@@ -65,10 +66,12 @@ public class MainActivity extends Activity {
         public void run() {
             if (isRunning) {
                 progress += step;
-                tvProgress.setText(String.format(PROGRESS, new Float((progress / number * 1f) * 100).intValue()));
+                stepOf100 = progress / step;
+                System.out.println("progress: " + progress);
+                System.out.println("step: " + stepOf100.intValue());
+                tvProgress.setText(String.format(PROGRESS, stepOf100.intValue()));
                 progressBar.setProgress(progress.intValue());
                 if (progress.intValue() >= progressBar.getMax()) {
-                    tvProgress.setText(String.format(PROGRESS, new Float((progress / number * 1f) * 100).intValue()));
                     btnDoItAgain.setEnabled(true);
                     progress = 0f;
                     isRunning = false;
@@ -79,13 +82,8 @@ public class MainActivity extends Activity {
     private Runnable backgroundTask = new Runnable() {
         @Override
         public void run() {
-            for (; progress <= progressBar.getMax() && isRunning; ) {
+            for (; progress < progressBar.getMax() && isRunning;) {
                 handler.post(foregroundRunnable);
-                try {
-                    Thread.sleep(1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         }
     };

@@ -65,11 +65,10 @@ public class MainActivity extends Activity {
         public void run() {
             if (isRunning) {
                 progress += step;
-                System.out.println("progress: " + progress);
-                tvProgress.setText(String.format(PROGRESS, progress.intValue()));
+                tvProgress.setText(String.format(PROGRESS, new Float((progress / number * 1f) * 100).intValue()));
                 progressBar.setProgress(progress.intValue());
                 if (progress.intValue() >= progressBar.getMax()) {
-                    tvProgress.setText("Time up");
+                    tvProgress.setText(String.format(PROGRESS, new Float((progress / number * 1f) * 100).intValue()));
                     btnDoItAgain.setEnabled(true);
                     progress = 0f;
                     isRunning = false;
@@ -82,6 +81,11 @@ public class MainActivity extends Activity {
         public void run() {
             for (; progress <= progressBar.getMax() && isRunning; ) {
                 handler.post(foregroundRunnable);
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     };
